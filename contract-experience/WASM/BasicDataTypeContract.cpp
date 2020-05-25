@@ -65,30 +65,7 @@ CONTRACT BasicDataTypeContract : public platon::Contract{
            return string_v.self().size();
        }
 
-     /**
-      * 4、浮点类型(float、double)
-      * 验证结果：浮点型编译不通过
-      **/
-      //1)、float入参带&引用值
-   /*  ACTION void set_float(const float &value){
-          float_v.self() = value;
-     }
-     ACTION void set_float_one(const float value){
-          float_v.self() = value;
-     }
-    CONST float get_float(){
-          return float_v.self();
-     }*/
-     //2)、double入参带&引用值
-   /*ACTION void set_double(const double &value){
-          double_v.self() = value;
-      }
-     ACTION void set_double_one(const double value){
-            double_v.self() = value;
-     }
-     CONST double get_double(){
-         return double_v.self();
-     }*/
+     
      //3)、定义局部变量浮点型
      //验证结果：可以编译通过，脚本调用正常未见gas不足异常
     ACTION void set_float_type_local(){
@@ -179,12 +156,6 @@ PLATON_DISPATCH(BasicDataTypeContract,(init)
 (set_byte)(get_byte)
 (set_string)(get_string)(get_string_length)
 (set_address)(get_address)
-//(set_float)
-//(set_float_one)
-//(get_float)
-//(set_double)
-//(set_double_one)
-//(get_double)
 (set_float_type_local)
 (set_long)(get_long)(set_long_long)(get_long_long)
 (set_enum_validity)(set_enum_assignment)(set_enum_scope)
