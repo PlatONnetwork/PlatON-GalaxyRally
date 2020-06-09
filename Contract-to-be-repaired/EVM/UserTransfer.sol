@@ -11,7 +11,7 @@ contract UserTransfer {
         balances[msg.sender] = 200;
     }
     
-
+   //请完善相关逻辑
     function transfer(address _to, uint8 _value) public returns (bool) {
 		
 	require(owner == msg.sender);
