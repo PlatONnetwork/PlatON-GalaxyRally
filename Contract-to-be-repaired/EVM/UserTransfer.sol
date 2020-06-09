@@ -7,14 +7,13 @@ contract UserTransfer {
     mapping(address => uint8) public balances; 
 
     constructor () public {
-        owner = msg.sender;
+        owner=msg.sender;
         balances[msg.sender] = 200;
     }
     
-   //请完善相关逻辑
-    function transfer(address _to, uint8 _value) public returns (bool) {
-		
-	require(owner == msg.sender);
+
+    function transfer(address _to, uint8 _value) public returns (bool) {	
+    	require(balances[msg.sender] - _value>=0);
         balances[msg.sender] -= _value;
         balances[_to] += _value;
         return true;
@@ -24,4 +23,9 @@ contract UserTransfer {
 	return balances[addr];
    }
 
+   function mint(uint8 _value) public returns (bool) {
+        require(owner==msg.sender); 
+        balances[msg.sender] += _value;
+        return true;
+    }
 }
